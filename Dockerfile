@@ -35,6 +35,6 @@ RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Install composer dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader --no-interaction
 
 EXPOSE 80
